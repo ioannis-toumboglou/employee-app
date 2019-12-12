@@ -1,6 +1,6 @@
 package com.toumb.employee;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Employee {
 	private int id;
