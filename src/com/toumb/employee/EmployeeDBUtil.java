@@ -9,7 +9,12 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class EmployeeDBUtil {
-	private DataSource theDataSource;
+	private DataSource dataSource;
+	
+	// Constructor
+	public EmployeeDBUtil(DataSource theDataSource) {
+		dataSource = theDataSource;
+	}
 	
 	// Method to retrieve Employees from database
 	public List<Employee> getEmployees() throws Exception {
@@ -21,7 +26,7 @@ public class EmployeeDBUtil {
 		
 		try {
 			// Get a connection
-			myConn = theDataSource.getConnection();
+			myConn = dataSource.getConnection();
 			// Create an SQL statement
 			String sql = "SELECT * FROM employee ORDER BY last_name";
 			myStatement = myConn.createStatement();
@@ -67,7 +72,7 @@ public class EmployeeDBUtil {
 		
 		try {
 			// Connect to database
-			myConn = theDataSource.getConnection();
+			myConn = dataSource.getConnection();
 			// Create SQL query for insert
 			String sql = "INSERT INTO employee (first_name, last_name, email) VALUES (?, ?, ?)";
 			myStatement = myConn.prepareStatement(sql);
@@ -94,7 +99,7 @@ public class EmployeeDBUtil {
 			// Convert employee id to int
 			employeeId = Integer.parseInt(theEmployeeId);
 			// Connect to database
-			myConn = theDataSource.getConnection();
+			myConn = dataSource.getConnection();
 			// Create an SQL statement
 			String sql = "SELECT * FROM employee WHERE id=?";
 			// Create prepared statement
@@ -128,7 +133,7 @@ public class EmployeeDBUtil {
 		
 		try {
 			// Connect to database
-			myConn = theDataSource.getConnection();
+			myConn = dataSource.getConnection();
 			// Create an SQL statement
 			String sql = "UPDATE employee SET first_name=?, last_name=?, email=? WHERE id=?";
 			// Create prepared statement
@@ -155,7 +160,7 @@ public class EmployeeDBUtil {
 			// Convert employee id to integer
 			int employeeId = Integer.parseInt(theEmployeeId);
 			// Connect to database
-			myConn = theDataSource.getConnection();
+			myConn = dataSource.getConnection();
 			// Create an SQL statement
 			String sql = "DELETE FROM employee WHERE id=?";
 			// Create prepared statement
