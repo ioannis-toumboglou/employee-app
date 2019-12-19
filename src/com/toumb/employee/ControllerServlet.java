@@ -17,7 +17,7 @@ public class ControllerServlet  extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private EmployeeDBUtil employeeDBUtil;
 	
-	@Resource(name="jdbc/employee_tracker")
+	@Resource(name="jdbc/web_employee_tracker")
 	private DataSource dataSource;
 	
 	@Override

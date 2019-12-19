@@ -48,6 +48,9 @@ public class Employee {
 		this.lastName = lastName;
 		this.email = email;
 	}
+	
+	public Employee() {
+	}
 
 	public int getId() {
 		return id;
