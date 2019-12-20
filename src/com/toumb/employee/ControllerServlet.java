@@ -85,7 +85,9 @@ public class ControllerServlet  extends HttpServlet {
 		String jobTitle = request.getParameter("jobTitle");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
-		java.util.Date dateOfBirth = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("dateOfBirth"));
+		String stringDateOfBirth = request.getParameter("dateOfBirth");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		java.util.Date dateOfBirth = sdf.parse(stringDateOfBirth);
 		java.sql.Date dateOfBirthSQL = new java.sql.Date(dateOfBirth.getTime());
 		String address = request.getParameter("address");
 		String notes = request.getParameter("notes");

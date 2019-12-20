@@ -25,6 +25,7 @@ public class Employee {
 		this.phone = phone;
 		this.dateOfBirth = dateOfBirth;
 		this.address = address;
+		this.notes = notes;
 	}
 	
 	public Employee(String title, String firstName, String lastName, String jobTitle,
@@ -37,24 +38,42 @@ public class Employee {
 		this.phone = phone;
 		this.dateOfBirth = dateOfBirth;
 		this.address = address;
+		this.notes = notes;
 	}
 	
-	public Employee(int id, String title, String firstName, String lastName, String email) {
-		this.id = id;
+	public Employee(String title, String firstName, String lastName,
+			String email, String phone, Date dateOfBirth, String address, String notes) {
 		this.title = title;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.phone = phone;
+		this.dateOfBirth = dateOfBirth;
+		this.address = address;
+		this.notes = notes;
 	}
 	
-	public Employee(int id, String firstName, String lastName, String email) {
-		this.id = id;
+	public Employee(String title, String firstName, String lastName,
+			String email, String address, String notes) {
+		this.title = title;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.address = address;
+		this.notes = notes;
 	}
 	
-	public Employee(String firstName, String lastName, String email) {
+	public Employee(String title, String firstName, String lastName,
+			String email, String notes) {
+		this.title = title;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.notes = notes;
+	}
+	
+	public Employee(String title, String firstName, String lastName, String email) {
+		this.title = title;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
