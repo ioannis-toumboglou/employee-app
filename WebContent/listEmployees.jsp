@@ -27,11 +27,14 @@
 			   onclick="window.location.href='addEmployee.jsp'; return false;"
 			   class="addEmployeeButton"
 		/>
+		<br/>
+		<br/>
 
 		<table>
 			<tr>
-				<th>First Name</th>
 				<th>Last Name</th>
+				<th>First Name</th>
+				<th>Job Title</th>
 				<th>Email</th>
 				<th>Action</th>
 			</tr>
@@ -49,8 +52,9 @@
 				</c:url>
 				
 				<tr>
-					<td> ${tempEmployee.firstName} </td>
 					<td> ${tempEmployee.lastName} </td>
+					<td> ${tempEmployee.firstName} </td>
+					<td> ${tempEmployee.jobTitle } </td>
 					<td> ${tempEmployee.email} </td>
 					<td> <a href="${tempLink}">Update</a> | <a href="${deleteLink}" onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">Delete</a></td>
 				</tr>

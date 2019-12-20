@@ -1,25 +1,36 @@
 package com.toumb.employee;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Employee {
 	private int id;
 	private String title;
 	private String firstName;
-	private String middleName;
 	private String lastName;
 	private String jobTitle;
 	private String email;
 	private String phone;
 	private Date dateOfBirth;
 	private String address;
+	private String notes;
 	
-	public Employee(int id, String title, String firstName, String middleName, String lastName, String jobTitle,
-			String email, String phone, Date dateOfBirth, String address) {
+	public Employee(int id, String title, String firstName, String lastName, String jobTitle,
+			String email, String phone, Date dateOfBirth, String address, String notes) {
 		this.id = id;
 		this.title = title;
 		this.firstName = firstName;
-		this.middleName = middleName;
+		this.lastName = lastName;
+		this.jobTitle = jobTitle;
+		this.email = email;
+		this.phone = phone;
+		this.dateOfBirth = dateOfBirth;
+		this.address = address;
+	}
+	
+	public Employee(String title, String firstName, String lastName, String jobTitle,
+			String email, String phone, Date dateOfBirth, String address, String notes) {
+		this.title = title;
+		this.firstName = firstName;
 		this.lastName = lastName;
 		this.jobTitle = jobTitle;
 		this.email = email;
@@ -48,9 +59,6 @@ public class Employee {
 		this.lastName = lastName;
 		this.email = email;
 	}
-	
-	public Employee() {
-	}
 
 	public int getId() {
 		return id;
@@ -74,14 +82,6 @@ public class Employee {
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
-	}
-
-	public String getMiddleName() {
-		return middleName;
-	}
-
-	public void setMiddleName(String middleName) {
-		this.middleName = middleName;
 	}
 
 	public String getLastName() {
@@ -131,12 +131,20 @@ public class Employee {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", title=" + title + ", firstName=" + firstName + ", middleName=" + middleName
+		return "Employee [id=" + id + ", title=" + title + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", jobTitle=" + jobTitle + ", email=" + email + ", phone=" + phone
-				+ ", dateOfBirth=" + dateOfBirth + ", address=" + address + "]";
+				+ ", dateOfBirth=" + dateOfBirth + ", address=" + address + ", notes=" + notes + "]";
 	}
 	
 }

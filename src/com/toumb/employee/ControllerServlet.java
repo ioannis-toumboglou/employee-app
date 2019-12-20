@@ -1,6 +1,7 @@
 package com.toumb.employee;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -78,12 +79,19 @@ public class ControllerServlet  extends HttpServlet {
 	private void updateEmployee(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// Read employee info from form
 		int id = Integer.parseInt(request.getParameter("employeeId"));
+		String title = request.getParameter("title");
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
+		String jobTitle = request.getParameter("jobTitle");
 		String email = request.getParameter("email");
+		String phone = request.getParameter("phone");
+		java.util.Date dateOfBirth = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("dateOfBirth"));
+		java.sql.Date dateOfBirthSQL = new java.sql.Date(dateOfBirth.getTime());
+		String address = request.getParameter("address");
+		String notes = request.getParameter("notes");
 		
 		// Create new employee object
-		Employee theEmployee = new Employee(id, firstName, lastName, email);
+		Employee theEmployee = new Employee(id, title, firstName, lastName, jobTitle, email, phone, dateOfBirthSQL, address, notes);
 		
 		// Update database
 		employeeDBUtil.updateEmployee(theEmployee);
@@ -110,13 +118,20 @@ public class ControllerServlet  extends HttpServlet {
 
 	private void addEmployee(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// Read employee info from form
-		int id = Integer.parseInt(request.getParameter("employeeId"));
+		String title = request.getParameter("title");
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
+		String jobTitle = request.getParameter("jobTitle");
 		String email = request.getParameter("email");
+		String phone = request.getParameter("phone");
+		// Need to convert the birth date from util to sql, in order to store it in the database
+		java.util.Date dateOfBirth = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("dateOfBirth"));
+		java.sql.Date dateOfBirthSQL = new java.sql.Date(dateOfBirth.getTime());
+		String address = request.getParameter("address");
+		String notes = request.getParameter("notes");
 		
 		// Create new employee object
-		Employee theEmployee = new Employee(id, firstName, lastName, email);
+		Employee theEmployee = new Employee(title, firstName, lastName, jobTitle, email, phone, dateOfBirthSQL, address, notes);
 				
 		// Update database
 		employeeDBUtil.addEmployee(theEmployee);

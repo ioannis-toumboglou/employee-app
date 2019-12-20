@@ -1,12 +1,14 @@
 package com.toumb.employee;
 
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.List;
 import java.util.ArrayList;
+import java.sql.Date;
+import java.util.List;
+
+import javax.sql.DataSource;
 
 public class EmployeeDBUtil {
 	private DataSource dataSource;
@@ -35,13 +37,19 @@ public class EmployeeDBUtil {
 			// Process the result
 			while(myRes.next()) {
 				// Retrieve data from row
-				int id = myRes.getInt("id");
+				int employeeId = myRes.getInt("id");
+				String title = myRes.getString("title");
 				String firstName = myRes.getString("first_name");
 				String lastName = myRes.getString("last_name");
+				String jobTitle = myRes.getString("job_title");
 				String email = myRes.getString("email");
+				String phone = myRes.getString("phone");
+				Date dateOfBirth = myRes.getDate("date_of_birth");
+				String address = myRes.getString("address");
+				String notes = myRes.getString("notes");
 				//Create a new Employee and add to the employee list
-				Employee tempEmployee = new Employee(id, firstName, lastName, email);
-				employees.add(tempEmployee);
+				Employee employee = new Employee(employeeId, title, firstName, lastName, jobTitle, email, phone, dateOfBirth, address, notes);
+				employees.add(employee);
 			}
 			return employees;
 			
@@ -66,7 +74,7 @@ public class EmployeeDBUtil {
 	}
 	
 	// Method to insert an Employee in the database
-	public void addEmployee(Employee theEmployee) throws Exception {
+	public void addEmployee(Employee employee) throws Exception {
 		Connection myConn = null;
 		PreparedStatement myStatement = null;
 		
@@ -74,11 +82,17 @@ public class EmployeeDBUtil {
 			// Connect to database
 			myConn = dataSource.getConnection();
 			// Create SQL query for insert
-			String sql = "INSERT INTO employee (first_name, last_name, email) VALUES (?, ?, ?)";
+			String sql = "INSERT INTO employee (title, first_name, last_name, job_title, email, phone, date_of_birth, address, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			myStatement = myConn.prepareStatement(sql);
-			myStatement.setString(1, theEmployee.getFirstName());
-			myStatement.setString(2, theEmployee.getLastName());
-			myStatement.setString(3, theEmployee.getEmail());
+			myStatement.setString(1, employee.getTitle());
+			myStatement.setString(2, employee.getFirstName());
+			myStatement.setString(3, employee.getLastName());
+			myStatement.setString(4, employee.getJobTitle());
+			myStatement.setString(5, employee.getEmail());
+			myStatement.setString(6, employee.getPhone());
+			myStatement.setDate(7, employee.getDateOfBirth());
+			myStatement.setString(8, employee.getAddress());
+			myStatement.setString(9, employee.getNotes());
 			// Execute SQL query
 			myStatement.execute();
 		} finally {
@@ -110,11 +124,17 @@ public class EmployeeDBUtil {
 			myRes = myStatement.executeQuery();
 			// Retrieve data from database row
 			if(myRes.next()) {
+				String title = myRes.getString("title");
 				String firstName = myRes.getString("first_name");
 				String lastName = myRes.getString("last_name");
+				String jobTitle = myRes.getString("job_title");
 				String email = myRes.getString("email");
+				String phone = myRes.getString("phone");
+				Date dateOfBirth = myRes.getDate("date_of_birth");
+				String address = myRes.getString("address");
+				String notes = myRes.getString("notes");
 				// Create an Employee
-				employee = new Employee(employeeId, firstName, lastName, email);
+				employee = new Employee(employeeId, title, firstName, lastName, jobTitle, email, phone, dateOfBirth, address, notes);
 			} else {
 				throw new Exception("Unable to find Employee Id: " + employeeId);
 			}
@@ -135,14 +155,20 @@ public class EmployeeDBUtil {
 			// Connect to database
 			myConn = dataSource.getConnection();
 			// Create an SQL statement
-			String sql = "UPDATE employee SET first_name=?, last_name=?, email=? WHERE id=?";
+			String sql = "UPDATE employee SET title=?, first_name=?, last_name=?, job_title=?, email=?, phone=?, date_of_birth=?, address=?, notes=?, WHERE id=?";
 			// Create prepared statement
 			myStatement = myConn.prepareStatement(sql);
 			// Set parameters
-			myStatement.setString(1, employee.getFirstName());
-			myStatement.setString(2, employee.getLastName());
-			myStatement.setString(3, employee.getEmail());
-			myStatement.setInt(4, employee.getId());
+			myStatement.setString(1, employee.getTitle());
+			myStatement.setString(2, employee.getFirstName());
+			myStatement.setString(3, employee.getLastName());
+			myStatement.setString(4, employee.getJobTitle());
+			myStatement.setString(5, employee.getEmail());
+			myStatement.setString(6, employee.getPhone());
+			myStatement.setDate(7, employee.getDateOfBirth());
+			myStatement.setString(8, employee.getAddress());
+			myStatement.setString(9, employee.getNotes());
+			myStatement.setInt(10, employee.getId());
 			// Execute SQL query
 			myStatement.execute();
 		} finally {
