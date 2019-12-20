@@ -155,7 +155,7 @@ public class EmployeeDBUtil {
 			// Connect to database
 			myConn = dataSource.getConnection();
 			// Create an SQL statement
-			String sql = "UPDATE employee SET title=?, first_name=?, last_name=?, job_title=?, email=?, phone=?, date_of_birth=?, address=?, notes=?, WHERE id=?";
+			String sql = "UPDATE employee SET title=?, first_name=?, last_name=?, job_title=?, email=?, phone=?, date_of_birth=?, address=?, notes=? WHERE id=?";
 			// Create prepared statement
 			myStatement = myConn.prepareStatement(sql);
 			// Set parameters
