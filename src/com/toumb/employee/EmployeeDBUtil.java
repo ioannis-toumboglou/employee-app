@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.sql.Date;
 import java.util.List;
 
@@ -130,7 +131,7 @@ public class EmployeeDBUtil {
 				String jobTitle = myRes.getString("job_title");
 				String email = myRes.getString("email");
 				String phone = myRes.getString("phone");
-				Date dateOfBirth = myRes.getDate("date_of_birth");
+				Date dateOfBirth = myRes.getDate("date_of_birth");				
 				String address = myRes.getString("address");
 				String notes = myRes.getString("notes");
 				// Create an Employee

@@ -1,7 +1,9 @@
 package com.toumb.employee;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -89,6 +91,14 @@ public class ControllerServlet  extends HttpServlet {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		java.util.Date dateOfBirth = sdf.parse(stringDateOfBirth);
 		java.sql.Date dateOfBirthSQL = new java.sql.Date(dateOfBirth.getTime());
+		
+		// Add one day, as every time a date is updated, the system subtracts one day
+		// Couldn't find a better solution
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(dateOfBirthSQL);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		dateOfBirthSQL = new Date(cal.getTimeInMillis());
+		
 		String address = request.getParameter("address");
 		String notes = request.getParameter("notes");
 		
@@ -129,6 +139,14 @@ public class ControllerServlet  extends HttpServlet {
 		// Need to convert the birth date from util to sql, in order to store it in the database
 		java.util.Date dateOfBirth = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("dateOfBirth"));
 		java.sql.Date dateOfBirthSQL = new java.sql.Date(dateOfBirth.getTime());
+		
+		// Add one day, as every time a date is updated, the system subtracts one day
+		// Couldn't find a better solution
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(dateOfBirthSQL);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		dateOfBirthSQL = new Date(cal.getTimeInMillis());
+		
 		String address = request.getParameter("address");
 		String notes = request.getParameter("notes");
 		

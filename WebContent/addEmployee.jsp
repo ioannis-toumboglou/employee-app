@@ -27,7 +27,7 @@
 			<table>
 				<tbody>
 					<tr>
-						<td><label>Title</label></td>
+						<td><label><b>Title</b></label></td>
 						<td>
 							<select name="title">
 								<option>-</option>
@@ -37,35 +37,35 @@
 						</td> 
 					</tr>
 					<tr>
-						<td><label>First Name</label></td>
-						<td><input type="text" name="firstName" /></td> 
+						<td><label><b>First Name</b> (*)</label></td>
+						<td><input type="text" name="firstName" required="required" /></td> 
 					</tr>
 					<tr>
-						<td><label>Last Name</label></td>
-						<td><input type="text" name="lastName" /></td> 
+						<td><label><b>Last Name</b> (*)</label></td>
+						<td><input type="text" name="lastName" required="required" /></td> 
 					</tr>
 					<tr>
-						<td><label>Job Title</label></td>
+						<td><label><b>Job Title</b></label></td>
 						<td><input type="text" name="jobTitle" /></td> 
 					</tr>
 					<tr>
-						<td><label>Email</label></td>
-						<td><input type="text" name="email" /></td> 
+						<td><label><b>Email</b> (*)</label></td>
+						<td><input type="text" name="email" required="required" /></td> 
 					</tr>
 					<tr>
-						<td><label>Phone Number</label></td>
+						<td><label><b>Phone Number</b></label></td>
 						<td><input type="text" name="phone" /></td> 
 					</tr>
 					<tr>
-						<td><label>Date of Birth</label></td>
-						<td><input type="date" name="dateOfBirth" /></td> 
+						<td><label><b>Date of Birth</b> (*)</label></td>
+						<td><input type="date" name="dateOfBirth" required="required" /></td> 
 					</tr>
 					<tr>
-						<td><label>Address</label></td>
+						<td><label><b>Address</b></label></td>
 						<td><input type="text" name="address" /></td> 
 					</tr>
 					<tr>
-						<td><label>Notes</label></td>
+						<td><label><b>Notes</b></label></td>
 						<td>
 							<textarea name="notes" placeholder="Add comments" rows="5"></textarea>
 						</td> 
@@ -80,6 +80,7 @@
 				</tbody>
 			</table>
 		</form>
+		<i>(*) required fields</i>
 		
 		<div style="clear: both;"></div>
 
