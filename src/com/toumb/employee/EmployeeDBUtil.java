@@ -28,7 +28,7 @@ public class EmployeeDBUtil {
 		ResultSet myRes = null;
 		
 		try {
-			// Get a connection
+			// Get a connection to database
 			myConn = dataSource.getConnection();
 			// Create an SQL statement
 			String sql = "SELECT * FROM employee ORDER BY last_name";
@@ -201,4 +201,60 @@ public class EmployeeDBUtil {
 			close(myConn, myStatement, null);
 		}
 	}
+
+    public List<Employee> searchEmployees(String searchKeyword) throws Exception {
+        List<Employee> employees = new ArrayList<>();
+        
+        Connection myConn = null;
+        PreparedStatement myStatement = null;
+        ResultSet myRes = null;
+        
+        try {
+            // Get a connection to database
+            myConn = dataSource.getConnection();
+            // Only search by keyword if searchKeyword is not empty
+            if(searchKeyword != null && searchKeyword.trim().length() > 0) {
+                // Create an SQL statement to search for employees by either first name, last name, job title or email
+                String sql = "select * from employee where lower(first_name) like ? or lower(last_name) like ?"
+                		   + " or lower(job_title) like ? or lower(email) like ?";
+                // Create prepared statement
+                myStatement = myConn.prepareStatement(sql);
+                String searchKeywordLike = "%" + searchKeyword.toLowerCase() + "%";
+                myStatement.setString(1, searchKeywordLike);
+                myStatement.setString(2, searchKeywordLike);
+                myStatement.setString(3, searchKeywordLike);
+                myStatement.setString(4, searchKeywordLike);
+            } else {
+                // Create an SQL statement to get all employees if search field left blank
+                String sql = "select * from employee order by last_name";
+                // Create prepared statement
+                myStatement = myConn.prepareStatement(sql);
+            }
+            // Execute the query
+            myRes = myStatement.executeQuery();
+            // Process the result
+            while (myRes.next()) {
+            	// Retrieve data from row
+                int employeeId = myRes.getInt("id");
+                String title = myRes.getString("title");
+				String firstName = myRes.getString("first_name");
+				String lastName = myRes.getString("last_name");
+				String jobTitle = myRes.getString("job_title");
+				String email = myRes.getString("email");
+				String phone = myRes.getString("phone");
+				Date dateOfBirth = myRes.getDate("date_of_birth");
+				String address = myRes.getString("address");
+				String notes = myRes.getString("notes");
+				//Create a new Employee and add to the employee list
+				Employee employee = new Employee(employeeId, title, firstName, lastName, jobTitle, email, phone, dateOfBirth, address, notes);
+				employees.add(employee);           
+            }
+            return employees;
+        }
+        
+        finally {
+        	// Close all the JDBC objects
+            close(myConn, myStatement, myRes);
+        }
+    }
 }

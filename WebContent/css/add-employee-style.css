@@ -68,4 +68,10 @@ tr {
 	border-style:none;
 	text-align:left;	
 }
+
+#fields_note {
+	color: red;
+	font-size: 13px;
+	font-style: italic;
+}
 	

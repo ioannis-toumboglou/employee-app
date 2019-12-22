@@ -39,11 +39,11 @@
 						</td> 
 					</tr>
 					<tr>
-						<td><label><b>First Name</b> (*)</label></td>
+						<td><label><b>First Name</b> *</label></td>
 						<td><input type="text" name="firstName" value="${THE_EMPLOYEE.firstName}" /></td> 
 					</tr>
 					<tr>
-						<td><label><b>Last Name</b> (*)</label></td>
+						<td><label><b>Last Name</b> *</label></td>
 						<td><input type="text" name="lastName" value="${THE_EMPLOYEE.lastName}" /></td> 
 					</tr>
 					<tr>
@@ -51,7 +51,7 @@
 						<td><input type="text" name="jobTitle" value="${THE_EMPLOYEE.jobTitle}" /></td> 
 					</tr>
 					<tr>
-						<td><label><b>Email</b> (*)</label></td>
+						<td><label><b>Email</b> *</label></td>
 						<td><input type="text" name="email" value="${THE_EMPLOYEE.email}" /></td> 
 					</tr>
 					<tr>
@@ -59,7 +59,7 @@
 						<td><input type="text" name="phone" value="${THE_EMPLOYEE.phone}" /></td> 
 					</tr>
 					<tr>
-						<td><label><b>Date of Birth</b> (*)</label></td>
+						<td><label><b>Date of Birth</b> *</label></td>
 						<td><input type="date" name="dateOfBirth" value="${THE_EMPLOYEE.dateOfBirth}" /></td> 
 					</tr>
 					<tr>
@@ -82,7 +82,10 @@
 				</tbody>
 			</table>
 		</form>
-		<i>(*) required fields</i>
+		
+		<div id="fields_note">
+			(*) required fields
+		</div>
 		
 		<div style="clear: both;"></div>
 		

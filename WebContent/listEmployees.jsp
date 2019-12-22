@@ -9,8 +9,6 @@
 	<link type="text/css" rel="stylesheet" href="css/style.css" >
 </head>
 
-
-
 <body>
 
 	<div id="wrapper">
@@ -22,13 +20,19 @@
 	<div id="container">
 		<div id="content">
 		
-		<input type="button" 
+		<form action="ControllerServlet" method="GET">
+			<input type="hidden" name="command" value="SEARCH" />
+                Search employee: <input type="text" name="searchKeyword" />
+            <input type="submit" value="Search" class="addEmployeeButton" />
+            
+            <input type="button" 
 			   value="Add Employee" 
 			   onclick="window.location.href='addEmployee.jsp'; return false;"
 			   class="addEmployeeButton"
-		/>
-		<br/>
-		<br/>
+			   style="float: right;"/>
+        </form> 
+        
+        <br/>
 
 		<table>
 			<tr>

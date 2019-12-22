@@ -11,7 +11,6 @@ CREATE TABLE `employee` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) DEFAULT NULL,
   `first_name` varchar(50) DEFAULT NULL,
-  `middle_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `job_title` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,

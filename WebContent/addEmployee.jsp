@@ -37,11 +37,11 @@
 						</td> 
 					</tr>
 					<tr>
-						<td><label><b>First Name</b> (*)</label></td>
+						<td><label><b>First Name</b> *</label></td>
 						<td><input type="text" name="firstName" required="required" /></td> 
 					</tr>
 					<tr>
-						<td><label><b>Last Name</b> (*)</label></td>
+						<td><label><b>Last Name</b> *</label></td>
 						<td><input type="text" name="lastName" required="required" /></td> 
 					</tr>
 					<tr>
@@ -49,7 +49,7 @@
 						<td><input type="text" name="jobTitle" /></td> 
 					</tr>
 					<tr>
-						<td><label><b>Email</b> (*)</label></td>
+						<td><label><b>Email</b> *</label></td>
 						<td><input type="text" name="email" required="required" /></td> 
 					</tr>
 					<tr>
@@ -57,7 +57,7 @@
 						<td><input type="text" name="phone" /></td> 
 					</tr>
 					<tr>
-						<td><label><b>Date of Birth</b> (*)</label></td>
+						<td><label><b>Date of Birth</b> *</label></td>
 						<td><input type="date" name="dateOfBirth" required="required" /></td> 
 					</tr>
 					<tr>
@@ -80,7 +80,10 @@
 				</tbody>
 			</table>
 		</form>
-		<i>(*) required fields</i>
+		
+		<div id="fields_note">
+			(*) required fields
+		</div>
 		
 		<div style="clear: both;"></div>
 

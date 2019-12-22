@@ -59,6 +59,9 @@ public class ControllerServlet  extends HttpServlet {
 				case "DELETE":
 					deleteEmployee(request, response);
 					break;
+	            case "SEARCH":
+	                searchEmployees(request, response);
+	                break;
 				default:
 					listEmployees(request, response);
 			}
@@ -173,4 +176,19 @@ public class ControllerServlet  extends HttpServlet {
 		dispatcher.forward(request, response);
 				
 	}
+	
+	private void searchEmployees(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        // Get keyword from form
+        String searchKeyword = request.getParameter("searchKeyword");
+        
+        // Search employees
+        List<Employee> employees = employeeDBUtil.searchEmployees(searchKeyword);
+        
+        // Add employees to the request
+        request.setAttribute("EMPLOYEE_LIST", employees);
+                
+        // Send to JSP page
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/listEmployees.jsp");
+        dispatcher.forward(request, response);
+    }
 }
