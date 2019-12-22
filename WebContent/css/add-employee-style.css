@@ -56,6 +56,34 @@ textarea {
 	text-align: center;
 }
 
+login-label {
+	font-size: 16px;
+	width: 430px; 
+	margin-top: 8px;
+	margin-bottom: 8px;
+	margin-right: 8px;
+	display: flex;
+  	flex-direction: row;
+  	justify-content: flex-end;
+}
+
+.login-input {
+	width: 200px;
+	border: 1px solid #666; 
+	border-radius: 5px; 
+	font-size: 16px;
+	margin-left: 10px;
+	flex: 0 0 200px;
+}
+
+#login-button {
+	font-weight: bold;
+	width: 130px;
+	margin-top: 30px;
+	background: #cccccc;
+	text-align: center;
+}
+
 table {   
 	border-style:none;
 	width:50%;
@@ -65,8 +93,8 @@ tr:nth-child(even) {background: #FFFFFF}
 tr:nth-child(odd) {background: #FFFFFF}
 
 tr {
-	border-style:none;
-	text-align:left;	
+	border-style: none;
+	text-align: left;	
 }
 
 #fields_note {
@@ -74,4 +102,3 @@ tr {
 	font-size: 13px;
 	font-style: italic;
 }
-	
