@@ -16,10 +16,9 @@ public class LoginDao {
         Connection myConn = null;
         PreparedStatement myStatement = null;
         ResultSet myRes = null;
-
-        Class.forName("com.mysql.jdbc.Driver");
         
         try {
+        	Class.forName("com.mysql.jdbc.Driver");
         	// Get a connection to database
         	myConn = dataSource.getConnection();
         	// Create an SQL statement
@@ -27,13 +26,21 @@ public class LoginDao {
         	// Create prepared statement
         	myStatement = myConn.prepareStatement(sql);
         	// Execute the query
-        	myRes = myStatement.executeQuery(sql);
+        	myRes = myStatement.executeQuery();
         	// Set parameters
         	myStatement.setString(1, user.getUsername());
         	myStatement.setString(2, user.getPassword());
 
             myRes = myStatement.executeQuery();
-            status = myRes.next();
+            
+            if(myRes.next()) {
+            	String dbUsername = myRes.getString("name");
+            	String dbPassword = myRes.getString("password");
+            	
+            	if(username.equals(dbUsername) && password.equals(dbPassword)) {
+            		status = true;
+            	}
+            }
 
         } catch (SQLException e) {
             printSQLException(e);

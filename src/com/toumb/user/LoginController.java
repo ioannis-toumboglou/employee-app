@@ -7,7 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
@@ -32,7 +31,7 @@ public class LoginController extends HttpServlet {
             if(loginDao.validate(user)) {
                 response.sendRedirect("listEmployees.jsp");
             } else {
-            	HttpSession session = request.getSession();
+            	response.sendRedirect("login.jsp");
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
