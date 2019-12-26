@@ -42,13 +42,14 @@ public class EmployeeDBUtil {
 				String firstName = myRes.getString("first_name");
 				String lastName = myRes.getString("last_name");
 				String jobTitle = myRes.getString("job_title");
+				String department = myRes.getString("department");
 				String email = myRes.getString("email");
 				String phone = myRes.getString("phone");
 				Date dateOfBirth = myRes.getDate("date_of_birth");
 				String address = myRes.getString("address");
 				String notes = myRes.getString("notes");
 				//Create a new Employee and add to the employee list
-				Employee employee = new Employee(employeeId, title, firstName, lastName, jobTitle, email, phone, dateOfBirth, address, notes);
+				Employee employee = new Employee(employeeId, title, firstName, lastName, jobTitle, department, email, phone, dateOfBirth, address, notes);
 				employees.add(employee);
 			}
 			return employees;
@@ -82,17 +83,18 @@ public class EmployeeDBUtil {
 			// Connect to database
 			myConn = dataSource.getConnection();
 			// Create SQL query for insert
-			String sql = "INSERT INTO employee (title, first_name, last_name, job_title, email, phone, date_of_birth, address, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO employee (title, first_name, last_name, job_title, department, email, phone, date_of_birth, address, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			myStatement = myConn.prepareStatement(sql);
 			myStatement.setString(1, employee.getTitle());
 			myStatement.setString(2, employee.getFirstName());
 			myStatement.setString(3, employee.getLastName());
 			myStatement.setString(4, employee.getJobTitle());
-			myStatement.setString(5, employee.getEmail());
-			myStatement.setString(6, employee.getPhone());
-			myStatement.setDate(7, employee.getDateOfBirth());
-			myStatement.setString(8, employee.getAddress());
-			myStatement.setString(9, employee.getNotes());
+			myStatement.setString(5, employee.getDepartment());
+			myStatement.setString(6, employee.getEmail());
+			myStatement.setString(7, employee.getPhone());
+			myStatement.setDate(8, employee.getDateOfBirth());
+			myStatement.setString(9, employee.getAddress());
+			myStatement.setString(10, employee.getNotes());
 			// Execute SQL query
 			myStatement.execute();
 		} finally {
@@ -128,13 +130,14 @@ public class EmployeeDBUtil {
 				String firstName = myRes.getString("first_name");
 				String lastName = myRes.getString("last_name");
 				String jobTitle = myRes.getString("job_title");
+				String department = myRes.getString("department");
 				String email = myRes.getString("email");
 				String phone = myRes.getString("phone");
 				Date dateOfBirth = myRes.getDate("date_of_birth");				
 				String address = myRes.getString("address");
 				String notes = myRes.getString("notes");
 				// Create an Employee
-				employee = new Employee(employeeId, title, firstName, lastName, jobTitle, email, phone, dateOfBirth, address, notes);
+				employee = new Employee(employeeId, title, firstName, lastName, jobTitle, department, email, phone, dateOfBirth, address, notes);
 			} else {
 				throw new Exception("Unable to find Employee Id: " + employeeId);
 			}
@@ -155,7 +158,7 @@ public class EmployeeDBUtil {
 			// Connect to database
 			myConn = dataSource.getConnection();
 			// Create an SQL statement
-			String sql = "UPDATE employee SET title=?, first_name=?, last_name=?, job_title=?, email=?, phone=?, date_of_birth=?, address=?, notes=? WHERE id=?";
+			String sql = "UPDATE employee SET title=?, first_name=?, last_name=?, job_title=?, department=?, email=?, phone=?, date_of_birth=?, address=?, notes=? WHERE id=?";
 			// Create prepared statement
 			myStatement = myConn.prepareStatement(sql);
 			// Set parameters
@@ -163,12 +166,13 @@ public class EmployeeDBUtil {
 			myStatement.setString(2, employee.getFirstName());
 			myStatement.setString(3, employee.getLastName());
 			myStatement.setString(4, employee.getJobTitle());
-			myStatement.setString(5, employee.getEmail());
-			myStatement.setString(6, employee.getPhone());
-			myStatement.setDate(7, employee.getDateOfBirth());
-			myStatement.setString(8, employee.getAddress());
-			myStatement.setString(9, employee.getNotes());
-			myStatement.setInt(10, employee.getId());
+			myStatement.setString(5, employee.getDepartment());
+			myStatement.setString(6, employee.getEmail());
+			myStatement.setString(7, employee.getPhone());
+			myStatement.setDate(8, employee.getDateOfBirth());
+			myStatement.setString(9, employee.getAddress());
+			myStatement.setString(10, employee.getNotes());
+			myStatement.setInt(11, employee.getId());
 			// Execute SQL query
 			myStatement.execute();
 		} finally {
@@ -215,7 +219,7 @@ public class EmployeeDBUtil {
             if(searchKeyword != null && searchKeyword.trim().length() > 0) {
                 // Create an SQL statement to search for employees by either first name, last name, job title or email
                 String sql = "select * from employee where lower(first_name) like ? or lower(last_name) like ?"
-                		   + " or lower(job_title) like ? or lower(email) like ?";
+                		   + " or lower(job_title) like ? or lower(department) like ? or lower(email) like ?";
                 // Create prepared statement
                 myStatement = myConn.prepareStatement(sql);
                 String searchKeywordLike = "%" + searchKeyword.toLowerCase() + "%";
@@ -223,6 +227,7 @@ public class EmployeeDBUtil {
                 myStatement.setString(2, searchKeywordLike);
                 myStatement.setString(3, searchKeywordLike);
                 myStatement.setString(4, searchKeywordLike);
+                myStatement.setString(5, searchKeywordLike);
             } else {
                 // Create an SQL statement to get all employees if search field left blank
                 String sql = "select * from employee order by last_name";
@@ -239,13 +244,14 @@ public class EmployeeDBUtil {
 				String firstName = myRes.getString("first_name");
 				String lastName = myRes.getString("last_name");
 				String jobTitle = myRes.getString("job_title");
+				String department = myRes.getString("department");
 				String email = myRes.getString("email");
 				String phone = myRes.getString("phone");
 				Date dateOfBirth = myRes.getDate("date_of_birth");
 				String address = myRes.getString("address");
 				String notes = myRes.getString("notes");
 				//Create a new Employee and add to the employee list
-				Employee employee = new Employee(employeeId, title, firstName, lastName, jobTitle, email, phone, dateOfBirth, address, notes);
+				Employee employee = new Employee(employeeId, title, firstName, lastName, jobTitle, department, email, phone, dateOfBirth, address, notes);
 				employees.add(employee);           
             }
             return employees;

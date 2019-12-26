@@ -51,6 +51,22 @@
 						<td><input type="text" name="jobTitle" value="${THE_EMPLOYEE.jobTitle}" /></td> 
 					</tr>
 					<tr>
+						<td><label><b>Department</b></label></td>
+						<td>
+							<select id="dept" name="department">
+								<option selected="selected">${THE_EMPLOYEE.department}</option>
+								<option></option>
+								<option>Development</option>
+								<option>Finance</option>
+								<option>Marketing</option>
+								<option>Human Resources</option>
+								<option>Support</option>
+								<option>Research & Development</option>
+								<option>Sales</option>
+							</select>
+						</td> 
+					</tr>
+					<tr>
 						<td><label><b>Email</b> *</label></td>
 						<td><input type="text" name="email" value="${THE_EMPLOYEE.email}" /></td> 
 					</tr>

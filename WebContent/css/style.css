@@ -28,18 +28,17 @@ tr:nth-child(even) {background: #FFFFFF}
 tr:nth-child(odd) {background: #BBBBBB}	
  
 #wrapper {width: 100%; margin-top: 0px; }
-#header {width: 72%; background: #400080; margin: 0px auto; padding:15px 0px 15px 15px;}
+#header {width: 75%; background: #400080; margin: 0px auto; padding:15px 0px 15px 15px;}
 #header h2 {width: 100%; margin:auto; color: #FFFFFF;}
-#container {width: 72%; margin-left:175px}
+#container {width: 75%; margin: 0px auto;}
 #container h3 {color: #000;}
 #container #content {margin-top: 20px;}
 
 .addEmployeeButton {
-	border: 0.1px solid #666; 
+	border: 0.1px solid #666;
 	border-radius: 5px; 
 	padding: 5px 10px;
 	font-size: 15px;
-	transition: background-color 0.2s, border 0.2s, color 0.2s;
 	
 	font-weight: bold;
 	width: 130px; 

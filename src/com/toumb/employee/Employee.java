@@ -8,19 +8,21 @@ public class Employee {
 	private String firstName;
 	private String lastName;
 	private String jobTitle;
+	private String department;
 	private String email;
 	private String phone;
 	private Date dateOfBirth;
 	private String address;
 	private String notes;
 	
-	public Employee(int id, String title, String firstName, String lastName, String jobTitle,
+	public Employee(int id, String title, String firstName, String lastName, String jobTitle, String department,
 			String email, String phone, Date dateOfBirth, String address, String notes) {
 		this.id = id;
 		this.title = title;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.jobTitle = jobTitle;
+		this.department = department;
 		this.email = email;
 		this.phone = phone;
 		this.dateOfBirth = dateOfBirth;
@@ -28,12 +30,13 @@ public class Employee {
 		this.notes = notes;
 	}
 	
-	public Employee(String title, String firstName, String lastName, String jobTitle,
+	public Employee(String title, String firstName, String lastName, String jobTitle, String department,
 			String email, String phone, Date dateOfBirth, String address, String notes) {
 		this.title = title;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.jobTitle = jobTitle;
+		this.department = department;
 		this.email = email;
 		this.phone = phone;
 		this.dateOfBirth = dateOfBirth;
@@ -125,6 +128,14 @@ public class Employee {
 	public void setJobTitle(String jobTitle) {
 		this.jobTitle = jobTitle;
 	}
+	
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
 
 	public String getEmail() {
 		return email;
@@ -168,8 +179,8 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", title=" + title + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", jobTitle=" + jobTitle + ", email=" + email + ", phone=" + phone
+		return "Employee [id=" + id + ", title=" + title + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", jobTitle=" + jobTitle + ", department=" + department + ", email=" + email + ", phone=" + phone
 				+ ", dateOfBirth=" + dateOfBirth + ", address=" + address + ", notes=" + notes + "]";
 	}
 	

@@ -90,6 +90,7 @@ public class ControllerServlet  extends HttpServlet {
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String jobTitle = request.getParameter("jobTitle");
+		String department = request.getParameter("department");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
 		String stringDateOfBirth = request.getParameter("dateOfBirth");
@@ -108,7 +109,7 @@ public class ControllerServlet  extends HttpServlet {
 		String notes = request.getParameter("notes");
 		
 		// Create new employee object
-		Employee theEmployee = new Employee(id, title, firstName, lastName, jobTitle, email, phone, dateOfBirthSQL, address, notes);
+		Employee theEmployee = new Employee(id, title, firstName, lastName, jobTitle, department, email, phone, dateOfBirthSQL, address, notes);
 		
 		// Update database
 		employeeDBUtil.updateEmployee(theEmployee);
@@ -139,6 +140,7 @@ public class ControllerServlet  extends HttpServlet {
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String jobTitle = request.getParameter("jobTitle");
+		String department = request.getParameter("department");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
 		
@@ -157,7 +159,7 @@ public class ControllerServlet  extends HttpServlet {
 		String notes = request.getParameter("notes");
 		
 		// Create new employee object
-		Employee theEmployee = new Employee(title, firstName, lastName, jobTitle, email, phone, dateOfBirthSQL, address, notes);
+		Employee theEmployee = new Employee(title, firstName, lastName, jobTitle, department, email, phone, dateOfBirthSQL, address, notes);
 				
 		// Update database
 		employeeDBUtil.addEmployee(theEmployee);

@@ -45,8 +45,23 @@
 						<td><input type="text" name="lastName" required="required" /></td> 
 					</tr>
 					<tr>
-						<td><label><b>Job Title</b></label></td>
-						<td><input type="text" name="jobTitle" /></td> 
+						<td><label><b>Job Title</b> *</label></td>
+						<td><input type="text" name="jobTitle" required="required" /></td> 
+					</tr>
+					<tr>
+						<td><label><b>Department</b></label></td>
+						<td>
+							<select id="dept" name="department">
+								<option></option>
+								<option>Development</option>
+								<option>Finance</option>
+								<option>Marketing</option>
+								<option>Human Resources</option>
+								<option>Support</option>
+								<option>Research & Development</option>
+								<option>Sales</option>
+							</select>
+						</td> 
 					</tr>
 					<tr>
 						<td><label><b>Email</b> *</label></td>

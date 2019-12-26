@@ -20,6 +20,14 @@ input {
 	font-size: 16px;
 }
 
+#dept {
+	width: 360px;
+	border: 1px solid #666; 
+	border-radius: 5px; 
+	padding: 4px; 
+	font-size: 16px;
+}
+
 select {
 	width: 100px;
 	border: 1px solid #666; 
