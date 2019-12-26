@@ -62,6 +62,8 @@ public class ControllerServlet  extends HttpServlet {
 	            case "SEARCH":
 	                searchEmployees(request, response);
 	                break;
+	            case "LOGIN":
+	            	loadUser(request, response);
 				default:
 					listEmployees(request, response);
 			}
@@ -191,4 +193,24 @@ public class ControllerServlet  extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/listEmployees.jsp");
         dispatcher.forward(request, response);
     }
+	
+	private void loadUser(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// Read employee id from form
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+	
+		// Get employee from database
+		User user = employeeDBUtil.getUser(username, password);
+		
+		// Check credentials
+		if(username.equals(user.getUsername()) && password.equals(user.getPassword())) {
+			// Send to JSP Employee page
+			listEmployees(request, response);
+		} else if((user.getUsername() == "error") || (user.getPassword() == "error")) {
+			// Send to JSP error page
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/error.jsp");
+	        dispatcher.forward(request, response);
+		}
+		
+	}
 }

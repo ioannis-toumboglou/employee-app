@@ -14,6 +14,7 @@
 
 	<div align="center">
 		<h2>System Login</h2>
+		<h4>Invalid username or password - Please try again</h4>
   		<form action="ControllerServlet" method="GET" >
    			<input type="hidden" name="command" value="LOGIN" />
 	   		<table>

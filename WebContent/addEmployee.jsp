@@ -74,7 +74,7 @@
 						<td><label></label></td>
 						<td>
 							<input type="submit" value="Save" class="save" />
-							<input type="cancel" value="Cancel" class="cancel" onclick="location.href='./';"/>
+							<input type="cancel" value="Cancel" class="cancel" onclick="window.location.href='./listEmployees.jsp'"/>
 						</td>
 					</tr>
 				</tbody>

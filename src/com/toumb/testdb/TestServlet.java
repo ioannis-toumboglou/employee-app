@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 /**
- * Servlet implementation class TestServlet
+ * A test class to check database connection
  */
 @WebServlet("/TestServlet")
 public class TestServlet extends HttpServlet {

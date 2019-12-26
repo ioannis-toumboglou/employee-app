@@ -256,4 +256,40 @@ public class EmployeeDBUtil {
             close(myConn, myStatement, myRes);
         }
     }
+    
+ // Method to retrieve an User using the username and password
+ 	public User getUser(String username, String password) throws Exception {
+ 		User user = null;
+ 		Connection myConn = null;
+ 		PreparedStatement myStatement = null;
+ 		ResultSet myRes = null;
+ 		
+ 		try {
+ 			// Connect to database
+ 			myConn = dataSource.getConnection();
+ 			// Create an SQL statement
+ 			String sql = "SELECT * FROM user WHERE username=? AND password=?";
+ 			// Create prepared statement
+ 			myStatement = myConn.prepareStatement(sql);
+ 			// Set parameters
+ 			myStatement.setString(1, username);
+ 			myStatement.setString(2, password);
+ 			// Execute statement
+ 			myRes = myStatement.executeQuery();
+ 			// Retrieve data from database row
+ 			if(myRes.next()) {
+				String theUsername = myRes.getString("username");
+ 				String thePassword = myRes.getString("password");
+ 				// Create an Employee
+ 				user = new User(theUsername, thePassword);
+ 			} else {
+ 				user = new User("error", "error");
+ 			}
+ 			return user;
+ 			
+ 		} finally {
+ 			// Close all the JDBC objects
+ 			close(myConn, myStatement, myRes);
+ 		}	
+ 	}
 }
