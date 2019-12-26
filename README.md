@@ -19,33 +19,31 @@ performing CRUD operations.
 
 <br><br>
 <div align="center">
-	<img src="./images/01.Login.png" width="450" border="1" />
+	<kbd><img src="./images/01.Login.png" width="450" /></kbd>
 	<br><br>
-	<b>Picture 1 - Login screen</b>
+	<b>Image 1 - Login screen</b>
 </div>
 <br><br>
 <div align="center">
-	<img src="./images/02.Employee_List.png" width="650" border="1" />
+	<kbd><img src="./images/02.Employee_List.png" width="650" /></kbd>
 	<br><br>
-	<b>Picture 2 - List employees</b>
+	<b>Image 2 - List employees</b>
 </div>
 <br><br>
 <div align="center">
-	<img src="./images/03.Add_Employee.png" width="550" border="1" />
+	<kbd><img src="./images/03.Add_Employee.png" width="550" /></kbd>
 	<br><br>
-	<b>Picture 3 - Add employee</b>
+	<b>Image 3 - Add employee</b>
 </div>
 <br><br>
 <div align="center">
-	<img src="./images/04.Update_Employee.png" width="550" border="1" />
+	<kbd><img src="./images/04.Update_Employee.png" width="550" /></kbd>
 	<br><br>
-	<b>Picture 4 - Update employee</b>
+	<b>Image 4 - Update employee</b>
 </div>
 <br><br>
 <div align="center">
-	<img src="./images/05.Delete_Employee.png" width="650" border="1" />
+	<kbd><img src="./images/05.Delete_Employee.png" width="650" /></kbd>
 	<br><br>
-	<div align="center">
-		<b>Picture 5 - Delete employee</b>
-	</div>	
+	<b>Image 5 - Delete employee</b>
 </div>
