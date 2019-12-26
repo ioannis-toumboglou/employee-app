@@ -46,14 +46,21 @@ textarea {
 	text-align: center;
 }
 
+.save:hover {
+	background: #808080;
+}
+
 .cancel {
 	font-weight: bold;
-	width: 115px; 
+	width: 125px; 
 	padding: 5px 10px; 
 	margin-top: 30px;
-	margin-left: 35px;
+	margin-left: 50px;
 	background: #cccccc;
 	text-align: center;
+}
+.cancel:hover {
+	background: #808080;
 }
 
 login-label {
@@ -82,6 +89,10 @@ login-label {
 	margin-top: 30px;
 	background: #cccccc;
 	text-align: center;
+}
+
+#login-button:hover {
+	background: #808080;
 }
 
 table {   

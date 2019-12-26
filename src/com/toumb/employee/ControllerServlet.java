@@ -141,6 +141,7 @@ public class ControllerServlet  extends HttpServlet {
 		String jobTitle = request.getParameter("jobTitle");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
+		
 		// Need to convert the birth date from util to sql, in order to store it in the database
 		java.util.Date dateOfBirth = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("dateOfBirth"));
 		java.sql.Date dateOfBirthSQL = new java.sql.Date(dateOfBirth.getTime());
@@ -204,7 +205,7 @@ public class ControllerServlet  extends HttpServlet {
 		
 		// Check credentials
 		if(username.equals(user.getUsername()) && password.equals(user.getPassword())) {
-			// Send to JSP Employee page
+			// Send to JSP Employee list page
 			listEmployees(request, response);
 		} else if((user.getUsername() == "error") || (user.getPassword() == "error")) {
 			// Send to JSP error page

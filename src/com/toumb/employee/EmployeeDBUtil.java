@@ -283,6 +283,7 @@ public class EmployeeDBUtil {
  				// Create an Employee
  				user = new User(theUsername, thePassword);
  			} else {
+ 				// Create an error user in case one is not found
  				user = new User("error", "error");
  			}
  			return user;

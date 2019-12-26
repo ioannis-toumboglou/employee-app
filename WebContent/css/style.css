@@ -39,6 +39,7 @@ tr:nth-child(odd) {background: #BBBBBB}
 	border-radius: 5px; 
 	padding: 5px 10px;
 	font-size: 15px;
+	transition: background-color 0.2s, border 0.2s, color 0.2s;
 	
 	font-weight: bold;
 	width: 130px; 
@@ -46,4 +47,8 @@ tr:nth-child(odd) {background: #BBBBBB}
 	margin-top: 12px;
 	margin-bottom: 12px;
 	background: #cccccc;
+}
+
+.addEmployeeButton:hover {
+	background: #808080;
 }

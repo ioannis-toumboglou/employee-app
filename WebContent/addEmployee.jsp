@@ -74,7 +74,7 @@
 						<td><label></label></td>
 						<td>
 							<input type="submit" value="Save" class="save" />
-							<input type="cancel" value="Cancel" class="cancel" onclick="window.location.href='./listEmployees.jsp'"/>
+							<input type="button" value="Cancel" class="cancel" onclick="window.location.href='./ControllerServlet'"/>
 						</td>
 					</tr>
 				</tbody>
