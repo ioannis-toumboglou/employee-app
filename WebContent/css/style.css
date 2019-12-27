@@ -27,7 +27,7 @@ tr {
 tr:nth-child(even) {background: #FFFFFF}
 tr:nth-child(odd) {background: #BBBBBB}	
  
-#wrapper {width: 100%; margin-top: 0px; }
+#wrapper {width: 100%; margin-top: 0px;}
 #header {width: 75%; background: #400080; margin: 0px auto; padding:15px 0px 15px 15px;}
 #header h2 {width: 100%; margin:auto; color: #FFFFFF;}
 #container {width: 75%; margin: 0px auto;}
@@ -50,4 +50,20 @@ tr:nth-child(odd) {background: #BBBBBB}
 
 .addEmployeeButton:hover {
 	background: #808080;
+}
+
+a {
+	text-decoration: none;
+}
+
+a.logout:link, a.logout:visited {
+	color: #FFFFFF;
+	font-weight: bold;
+	float: right;
+	margin-top: 5px;
+	margin-right: 15px;
+}
+
+a.logout:hover {
+	color: #c0c0c0;
 }

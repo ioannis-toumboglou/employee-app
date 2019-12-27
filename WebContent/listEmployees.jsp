@@ -13,8 +13,10 @@
 
 	<div id="wrapper">
 		<div id="header">
+			<a class="logout" href="logout.jsp" onclick="if (!(confirm('Are you sure you want to log out?'))) return false">Logout</a>
 			<h2>Employee Management System</h2>
 		</div>
+
 	</div>
 	
 	<div id="container">
