@@ -3,8 +3,8 @@
 <br><br>
 <b>Description:</b>
 
-An employee management web application that uses an HTTP server and an SQL database,
-performing CRUD operations.
+An employee management web application that uses an HTTP server and an SQL database
+to keep employee data, performing CRUD operations.
 <br><br>
 <b>Technologies used:</b>
 <br>
@@ -13,8 +13,8 @@ performing CRUD operations.
 	<li>JSP</li>
 	<li>Servlet</li>
 	<li>JDBC</li>
-	<li>Apache Tomcat</li>
 	<li>MySQL database</li>
+	<li>Apache Tomcat</li>
 </ol>
 
 <br><br>
