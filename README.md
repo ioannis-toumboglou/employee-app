@@ -1,9 +1,9 @@
 # employee-app
-<b>Employee management web application</b>
+<b>Employee management application</b>
 <br><br>
 <b>Description:</b>
 
-An employee management web application that uses an HTTP server and an SQL database
+An employee management application that uses an HTTP server and an SQL database
 to keep employee data, performing CRUD operations.
 <br><br>
 <b>Technologies used:</b>
