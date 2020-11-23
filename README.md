@@ -1,4 +1,4 @@
-# employee-app
+# Employee Management Application
 <b>Employee management application</b>
 <br><br>
 <b>Description:</b>
