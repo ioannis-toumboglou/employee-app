@@ -1,6 +1,5 @@
 # Employee Management Application
-<b>Employee management application</b>
-<br><br>
+<br>
 <b>Description:</b>
 
 An employee management application that uses an HTTP server and an SQL database
